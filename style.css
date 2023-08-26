@@ -29,6 +29,7 @@ body {
   background-color: var(--background-color);
   color: var(--main-font-heavy);
   line-height: 1;
+  position: relative;
 }
 
 a {
@@ -120,49 +121,20 @@ p:focus {
 .Qimg {
   height: 8rem;
 }
-/* ******************** */
 
 /* ******************** */
-/* ******* MAIN ******* */
+/* ****** ASIDE ********/
 /* ******************** */
-.lists {
-  justify-content: space-around;
-  align-items: stretch;
-
-  flex-wrap: wrap;
-  padding: 1.2rem;
+.aside {
+  flex-direction: column;
 }
 
-.listcontainer {
-  padding: 1.8rem 1rem;
-  padding-bottom: 0;
-  width: 31%;
-  min-width: 20rem;
-  border: 4px dashed var(--buttons-color);
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-}
-
-.secondaryHeadLine {
-  font-size: var(--mid-font);
-  margin-bottom: 1rem;
-  text-decoration: underline;
-}
-
-.list {
-  font-size: var(--small-font);
-  font-weight: 600;
-  color: var(--secondary-font-lite);
-  padding: 0.4rem;
-  width: 100%;
-}
-
-.newTask {
-  margin-top: 1.2rem;
-  padding: 0.8rem 0;
+/* Reminder */
+.reminderList {
+  /* display: none; */
+  margin-top: -1rem;
+  padding: 0.8rem 1rem;
+  width: fit-content;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -174,51 +146,16 @@ p:focus {
   -moz-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
-  background-color: var(--tasks-color);
-  box-shadow: 0px 2px 0.8rem var(--buttons-dark-color);
+  background-color: #91c4b1;
+  box-shadow: 0px 2px 1.8rem var(--buttons-dark-color);
 }
-
-.newTask:hover {
-  cursor: grab;
-  transform: translateY(0.2rem);
-  -webkit-transform: translateY(0.2rem);
-  -moz-transform: translateY(0.2rem);
-  -ms-transform: translateY(0.2rem);
-  -o-transform: translateY(0.2rem);
-}
-
-.btn-addTask {
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-
-  transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-
-  padding: 0.4rem;
-  margin: 1.8rem auto;
-  width: 90%;
-
-  font-family: inherit;
-  font-weight: 500;
+.reminde {
   font-size: var(--small-font);
-  color: var(--tasks-color);
-  background-color: var(--buttons-color);
-  border: 0.1rem solid var(--buttons-dark-color);
 }
-
-.btn-addTask:hover {
-  background-color: var(--buttons-dark-color);
+.remember {
+  font-weight: 700;
+  font-style: italic;
 }
-
-/* ******************** */
-/* ****** HEADER ********/
-/* ******************** */
 
 /* ******************** */
 /* ******************** */

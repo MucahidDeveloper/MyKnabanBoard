@@ -10,6 +10,8 @@
     <link rel="preconnect" />
 
     <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="listContent.css" type="text/css" />
+    <link rel="stylesheet" href="relaxer.css" type="text/css" />
     <script src="script.js" type="text/javascript" defer></script>
     <script
       type="module"
@@ -23,6 +25,21 @@
     ></script>
   </head>
   <body>
+    <!-- Relaxer -->
+    <div class="showRelaxer">
+      <div class="relaxerContainer">
+        <div class="circle"></div>
+        <p id="text">Relax</p>
+
+        <div class="pointer-container">
+          <span class="pointer"></span>
+        </div>
+
+        <div class="gradient-circle"></div>
+      </div>
+    </div>
+
+    <!-- Header Section -->
     <header class="header flex container">
       <div class="timeAndDate flex">
         <div class="taD">
@@ -51,6 +68,8 @@
         </div>
       </div>
     </header>
+
+    <!-- Lists & Tasks  Section -->
 
     <main class="lists container flex">
       <div class="listcontainer">
@@ -81,15 +100,14 @@
       </div>
     </main>
 
-    <aside class="aside container">
-      <div class="relaxerContainer">
-        <button class="btn relaxer">RelaxeR</button>
-      </div>
-      <div class="reminderList">
+    <!-- Aside Section -->
+    <aside class="aside flex">
+      <div class="reminderList container">
         <p class="reminde">
-          <strong class="remember">Remember:</strong>Do your Best!
+          <strong class="remember">Remember : </strong>Do your Best!
         </p>
       </div>
+      <button class="btn relaxer">RelaxeR</button>
     </aside>
 
     <footer class="footer container">
