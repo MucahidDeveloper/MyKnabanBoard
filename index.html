@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="kanban_Board toDoBoard kanbanBoard" />
+    <title>MujahedKanbanBoard</title>
+    <link rel="icon" href="img/favicon.png" />
+    <link rel="apple-touch-icon" href="img/favicon.png" />
+    <link rel="preconnect" />
+
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script src="script.js" type="text/javascript" defer></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+      defer
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <header class="header container">
+      <div class="timeAndDate">
+        Time + Date
+        <div class="time">
+          <ion-icon name="alarm-outline" class="icon timeicn"></ion-icon>
+          <p id="current-time"></p>
+        </div>
+        <div class="date">
+          <ion-icon name="calendar-outline" class="icon dateicn"></ion-icon>
+          <p id="current-date"></p>
+        </div>
+      </div>
+      <h1 class="headLine">Mujahed Kanban Board</h1>
+      <div class="Qplayer">Quran Player</div>
+    </header>
+
+    <main class="main container">
+      <div class="listsContainer">
+        <div class="listcontainer">
+          <h2 class="secondaryHeadLine">Not Started</h2>
+          <ul class="listNew">
+            <li class="newTask">New Task</li>
+          </ul>
+          <button class="btn btn-addTask">+Add</button>
+        </div>
+
+        <div class="listcontainer">
+          <h2 class="secondaryHeadLine">In Progress</h2>
+          <ul class="listWorking">
+            <li class="newTask">New Task</li>
+          </ul>
+          <button class="btn btn-addTask">+Add</button>
+        </div>
+
+        <div class="listcontainer">
+          <h2 class="secondaryHeadLine">Completed</h2>
+          <ul class="listFinish">
+            <li class="newTask">New Task</li>
+          </ul>
+          <button class="btn btn-addTask">+Add</button>
+        </div>
+      </div>
+    </main>
+
+    <aside class="aside container">
+      <div class="relaxerContainer">
+        <button class="btn relaxer">RelaxeR</button>
+      </div>
+      <div class="reminderList">
+        <p class="reminde">
+          <strong class="remember">Remember:</strong>Do your Best!
+        </p>
+      </div>
+    </aside>
+
+    <footer class="footer container">
+      Coded in order to Practice Pure JavaScript By
+      <a href="https://www.linkedin.com/in/mucahid-developer/" class="myName">
+        <strong>Mujahed</strong>
+      </a>
+      <div class="social">
+        <a href="https://www.linkedin.com/in/mucahid-developer/">
+          <ion-icon name="logo-linkedin" class="icon socialicn"></ion-icon>
+        </a>
+        <a href="https://github.com/MucahidDeveloper">
+          <ion-icon name="logo-github" class="icon socialicn"></ion-icon>
+        </a>
+        <a href="https://twitter.com/MujDeveloper">
+          <ion-icon name="logo-twitter" class="icon socialicn"></ion-icon>
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>

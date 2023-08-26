@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway");
+
+:root {
+  /* COLORS */
+  --background-color: #3b9673;
+  --lite-background-color: #62ab8f;
+  --main-font-heavy: #0c1e17;
+  --secondary-font-lite: #235a45;
+  --tasks-color: #d8eae3;
+  --buttons-color: #1e4b3a;
+
+  /* FONTS */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  background-color: var(--background-color);
+  color: var(--main-font-heavy);
+  line-height: 1;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  padding: 1.2rem;
+}
+.container {
+  width: 80rem;
+  max-width: 80vw;
+  margin: 1.8rem auto;
+  text-align: center;
+  padding: 0.8rem;
+  /* background-color: var(--lite-background-color); */
+}
+
+.icon {
+  color: var(--main-font-heavy);
+  font-size: 2.4rem;
+}
+
+.socialicn:hover,
+.socialicn:active {
+  color: var(--secondary-font-lite);
+  transform: translateY(-0.2rem);
+  -webkit-transform: translateY(-0.2rem);
+  -moz-transform: translateY(-0.2rem);
+  -ms-transform: translateY(-0.2rem);
+  -o-transform: translateY(-0.2rem);
+}
+/* ******************** */
+
+.btn-addTask {
+  width: 80%;
+  margin: 1rem auto;
+  font-weight: 700;
+  color: var(--main-font-heavy);
+}
