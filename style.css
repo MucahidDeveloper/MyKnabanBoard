@@ -7,14 +7,14 @@
   --main-font-heavy: #0c1e17;
   --secondary-font-lite: #235a45;
   --tasks-color: #d8eae3;
-  --buttons-color: #1e4b3a;
+  --buttons-color: #1e4b3a66;
+  --buttons-dark-color: #1e4b3a;
 
   /* FONTS */
   --large-font: 5.4rem;
   --mid-font: 3.2rem;
-  --small-font: 1.2rem;
+  --small-font: 1.6rem;
 }
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -24,7 +24,6 @@
 html {
   font-size: 62.5%;
 }
-
 body {
   font-family: "Alkatra", sans-serif;
   background-color: var(--background-color);
@@ -44,8 +43,14 @@ button {
   cursor: pointer;
   padding: 1.2rem;
 }
+
+button:focus,
+p:focus {
+  outline: none;
+}
+
 .container {
-  width: 80rem;
+  width: 120rem;
   max-width: 80vw;
   margin: 1.8rem auto;
   text-align: center;
@@ -56,6 +61,11 @@ button {
 .icon {
   color: var(--main-font-heavy);
   font-size: 2.4rem;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
 }
 
 .socialicn:hover,
@@ -82,7 +92,6 @@ button {
 /* ****** HEADER ********/
 /* ******************** */
 .header {
-  color: var(--main-font-heavy);
   font-weight: 700;
 }
 
@@ -97,15 +106,9 @@ button {
 }
 
 .taD {
-  /* display: flex; */
-
   align-items: center;
   justify-content: space-between;
   gap: 0.8rem;
-}
-
-.taD p {
-  /* text-align: left; */
 }
 
 .Qplayer {
@@ -122,17 +125,102 @@ button {
 /* ******************** */
 /* ******* MAIN ******* */
 /* ******************** */
+.lists {
+  justify-content: space-around;
+  align-items: stretch;
 
-/* ******************** */
+  flex-wrap: wrap;
+  padding: 1.2rem;
+}
 
-/* ******************** */
-/* ******************** */
-/* ******************** */
-/* ******************** */
+.listcontainer {
+  padding: 1.8rem 1rem;
+  padding-bottom: 0;
+  width: 31%;
+  min-width: 20rem;
+  border: 4px dashed var(--buttons-color);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.secondaryHeadLine {
+  font-size: var(--mid-font);
+  margin-bottom: 1rem;
+  text-decoration: underline;
+}
+
+.list {
+  font-size: var(--small-font);
+  font-weight: 600;
+  color: var(--secondary-font-lite);
+  padding: 0.4rem;
+  width: 100%;
+}
+
+.newTask {
+  margin-top: 1.2rem;
+  padding: 0.8rem 0;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  background-color: var(--tasks-color);
+  box-shadow: 0px 2px 0.8rem var(--buttons-dark-color);
+}
+
+.newTask:hover {
+  cursor: grab;
+  transform: translateY(0.2rem);
+  -webkit-transform: translateY(0.2rem);
+  -moz-transform: translateY(0.2rem);
+  -ms-transform: translateY(0.2rem);
+  -o-transform: translateY(0.2rem);
+}
 
 .btn-addTask {
-  width: 80%;
-  margin: 1rem auto;
-  font-weight: 700;
-  color: var(--main-font-heavy);
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+
+  padding: 0.4rem;
+  margin: 1.8rem auto;
+  width: 90%;
+
+  font-family: inherit;
+  font-weight: 500;
+  font-size: var(--small-font);
+  color: var(--tasks-color);
+  background-color: var(--buttons-color);
+  border: 0.1rem solid var(--buttons-dark-color);
 }
+
+.btn-addTask:hover {
+  background-color: var(--buttons-dark-color);
+}
+
+/* ******************** */
+/* ****** HEADER ********/
+/* ******************** */
+
+/* ******************** */
+/* ******************** */
+/* ******************** */
+/* ******************** */
