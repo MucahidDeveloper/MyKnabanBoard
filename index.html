@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="style.css" type="text/css" />
     <link rel="stylesheet" href="listContent.css" type="text/css" />
     <link rel="stylesheet" href="relaxer.css" type="text/css" />
-    <script src="script.js" type="text/javascript" defer></script>
+
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
@@ -23,6 +23,7 @@
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
       defer
     ></script>
+    <script src="script.js" type="text/javascript" defer></script>
   </head>
   <body>
     <!-- Relaxer -->
@@ -75,10 +76,19 @@
       <div class="listcontainer">
         <h2 class="secondaryHeadLine">To Do</h2>
         <ul class="list listNew">
-          <li class="newTask">New Task</li>
-          <li class="newTask">New Task</li>
-          <li class="newTask">New Task</li>
-          <li class="newTask">New Task</li>
+          <li class="newTask flex" draggable="true" contenteditable="true">
+            <p class="taskInput">New Task</p>
+            <div class="iconsCon">
+              <ion-icon
+                name="close-circle-outline"
+                class="icon deleteIcn"
+              ></ion-icon>
+              <ion-icon
+                name="mic-circle-outline"
+                class="icon recordIcn"
+              ></ion-icon>
+            </div>
+          </li>
         </ul>
         <button class="btn btn-addTask">+Add</button>
       </div>
@@ -110,11 +120,13 @@
       <button class="btn relaxer">RelaxeR</button>
     </aside>
 
-    <footer class="footer container">
-      Coded in order to Practice Pure JavaScript By
-      <a href="https://www.linkedin.com/in/mucahid-developer/" class="myName">
-        <strong>Mujahed</strong>
-      </a>
+    <footer class="footer container flex">
+      <p>
+        Coded in order to Practice Pure JavaScript By
+        <a href="https://www.linkedin.com/in/mucahid-developer/" class="myName">
+          <strong>Mujahed</strong>
+        </a>
+      </p>
       <div class="social">
         <a href="https://www.linkedin.com/in/mucahid-developer/">
           <ion-icon name="logo-linkedin" class="icon socialicn"></ion-icon>

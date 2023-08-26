@@ -24,6 +24,7 @@
 html {
   font-size: 62.5%;
 }
+
 body {
   font-family: "Alkatra", sans-serif;
   background-color: var(--background-color);
@@ -122,6 +123,11 @@ p:focus {
   height: 8rem;
 }
 
+.icon.pause {
+  /* visibility: hidden; */
+  display: none;
+}
+
 /* ******************** */
 /* ****** ASIDE ********/
 /* ******************** */
@@ -149,15 +155,34 @@ p:focus {
   background-color: #91c4b1;
   box-shadow: 0px 2px 1.8rem var(--buttons-dark-color);
 }
+
 .reminde {
   font-size: var(--small-font);
 }
+
 .remember {
   font-weight: 700;
   font-style: italic;
 }
 
 /* ******************** */
+/* ****** FOOTER ********/
 /* ******************** */
-/* ******************** */
-/* ******************** */
+.footer {
+  /* flex-direction: column; */
+  gap: 2rem;
+  padding: auto;
+  margin-top: 3.2rem;
+}
+
+.footer p {
+  font-size: var(--small-font);
+}
+
+.myName {
+  color: var(--main-font-heavy);
+}
+
+.myName:hover {
+  color: var(--secondary-font-lite);
+}

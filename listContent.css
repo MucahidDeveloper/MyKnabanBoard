@@ -34,6 +34,7 @@
   color: var(--secondary-font-lite);
   padding: 0.4rem;
   width: 100%;
+  position: relative;
 }
 
 .newTask {
@@ -53,8 +54,9 @@
 
   background-color: var(--tasks-color);
   box-shadow: 0px 2px 0.8rem var(--buttons-dark-color);
-  overflow: auto;
+  overflow: initial;
   text-align: right;
+  flex-direction: row-reverse;
 }
 
 .newTask:hover {
@@ -64,6 +66,10 @@
   -moz-transform: translateY(0.2rem);
   -ms-transform: translateY(0.2rem);
   -o-transform: translateY(0.2rem);
+}
+
+.newTask:focus {
+  outline: none;
 }
 
 .btn-addTask {
@@ -91,6 +97,48 @@
   border: 0.1rem solid var(--buttons-dark-color);
 }
 
+.iconsCon {
+  display: flex;
+  width: 3.6rem;
+  position: absolute;
+  left: 0;
+  margin-left: 10px;
+  /* display: flex; */
+}
+
+/* .taskInput {
+} */
+
 .btn-addTask:hover {
   background-color: var(--buttons-dark-color);
+}
+
+.iconsCon .icon {
+  cursor: pointer;
+  font-size: 1.8rem;
+}
+
+.iconsCon .recordIcn {
+  color: var(--buttons-color);
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+
+.iconsCon .recordIcn:hover {
+  color: var(--buttons-dark-color);
+}
+.iconsCon .deleteIcn {
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  color: #ff7f7f;
+}
+
+.iconsCon .deleteIcn:hover {
+  color: #ff0000;
 }
