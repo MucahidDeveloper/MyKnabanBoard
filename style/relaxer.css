@@ -1,14 +1,18 @@
 /* Relaxer Breath Circle */
 .showRelaxer {
   background: var(--background-color);
-
   position: absolute;
   width: 100vw;
   height: 100vh;
   top: 0;
   z-index: 1;
+  overflow: hidden;
   display: none;
 }
+
+/* .show {
+  display: block;
+} */
 
 .relaxerContainer {
   display: flex;
@@ -32,6 +36,7 @@
   top: 0;
   left: 0;
   z-index: -1;
+  flex-direction: column;
 }
 
 .gradient-circle {
@@ -71,6 +76,14 @@
   transform-origin: bottom center;
 }
 
+.relaxerContainer {
+  cursor: pointer;
+}
+
+.closeRelaxer {
+  cursor: pointer;
+  font-size: var(--mid-font);
+}
 @keyframes rotate {
   from {
     transform: rotate(0deg);
@@ -81,7 +94,7 @@
   }
 }
 
-.container.grow {
+.congrow {
   animation: grow 3s linear forwards;
 }
 
@@ -95,7 +108,7 @@
   }
 }
 
-.container.shrink {
+.conshrink {
   animation: shrink 3s linear forwards;
 }
 
@@ -126,6 +139,7 @@
   -ms-transition: all 1s ease;
   -o-transition: all 1s ease;
   border: 1px solid var(--tasks-color);
+  margin: 1rem;
 }
 
 .relaxer:hover {

@@ -9,9 +9,9 @@
     <link rel="apple-touch-icon" href="img/favicon.png" />
     <link rel="preconnect" />
 
-    <link rel="stylesheet" href="style.css" type="text/css" />
-    <link rel="stylesheet" href="listContent.css" type="text/css" />
-    <link rel="stylesheet" href="relaxer.css" type="text/css" />
+    <link rel="stylesheet" href="style/style.css" type="text/css" />
+    <link rel="stylesheet" href="style/listContent.css" type="text/css" />
+    <link rel="stylesheet" href="style/relaxer.css" type="text/css" />
 
     <script
       type="module"
@@ -25,102 +25,104 @@
     ></script>
     <script src="script.js" type="text/javascript" defer></script>
   </head>
-  <body>
-    <!-- Relaxer -->
-    <div class="showRelaxer">
-      <div class="relaxerContainer">
-        <div class="circle"></div>
-        <p id="text">Relax</p>
+  <body class="flex">
+    <section class="container">
+      <!-- Relaxer -->
+      <div class="showRelaxer">
+        <div id="container" class="relaxerContainer">
+          <div class="circle flex"></div>
+          <p id="relaxertext"></p>
 
-        <div class="pointer-container">
-          <span class="pointer"></span>
-        </div>
+          <div class="pointer-container">
+            <span class="pointer"></span>
+          </div>
 
-        <div class="gradient-circle"></div>
-      </div>
-    </div>
-
-    <!-- Header Section -->
-    <header class="header flex container">
-      <div class="timeAndDate flex">
-        <div class="taD">
-          <ion-icon name="alarm-outline" class="icon timeicn"></ion-icon>
-          <p id="current-time">12:12:12</p>
-        </div>
-        <div class="taD">
-          <ion-icon name="calendar-outline" class="icon dateicn"></ion-icon>
-          <p id="current-date">01/01/2001</p>
+          <div class="gradient-circle"></div>
         </div>
       </div>
-      <h1 class="headLine">Mujahed Kanban Board</h1>
-      <div class="Qplayer">
-        <img src="img/Qimg.png" alt="Quran image" class="Qimg" />
-        <div class="icons flex">
-          <ion-icon
-            name="play-skip-back-circle-outline"
-            class="icon backward"
-          ></ion-icon>
-          <ion-icon name="play-circle-outline" class="icon play"></ion-icon>
-          <ion-icon name="pause-circle-outline" class="icon pause"></ion-icon>
-          <ion-icon
-            name="play-skip-forward-circle-outline"
-            class="icon forward"
-          ></ion-icon>
+
+      <!-- Header Section -->
+      <header class="header flex">
+        <div class="timeAndDate flex">
+          <div class="taD">
+            <ion-icon name="alarm-outline" class="icon timeicn"></ion-icon>
+            <p id="current-time">12:12:12</p>
+          </div>
+          <div class="taD">
+            <ion-icon name="calendar-outline" class="icon dateicn"></ion-icon>
+            <p id="current-date">01/01/2001</p>
+          </div>
         </div>
-      </div>
-    </header>
+        <h1 class="headLine">Mujahed Kanban Board</h1>
+        <div class="Qplayer">
+          <img src="img/Qimg.png" alt="Quran image" class="Qimg" />
+          <div class="icons flex">
+            <ion-icon
+              name="play-skip-back-circle-outline"
+              class="icon backward"
+            ></ion-icon>
+            <ion-icon name="play-circle-outline" class="icon play"></ion-icon>
+            <ion-icon name="pause-circle-outline" class="icon pause"></ion-icon>
+            <ion-icon
+              name="play-skip-forward-circle-outline"
+              class="icon forward"
+            ></ion-icon>
+          </div>
+        </div>
+      </header>
 
-    <!-- Lists & Tasks  Section -->
+      <!-- Lists & Tasks  Section -->
 
-    <main class="lists container flex">
-      <div class="listcontainer">
-        <h2 class="secondaryHeadLine">To Do</h2>
-        <ul class="list listNew">
-          <li class="newTask flex" draggable="true" contenteditable="true">
-            <p class="taskInput">New Task</p>
-            <div class="iconsCon">
-              <ion-icon
-                name="close-circle-outline"
-                class="icon deleteIcn"
-              ></ion-icon>
-              <ion-icon
-                name="mic-circle-outline"
-                class="icon recordIcn"
-              ></ion-icon>
-            </div>
-          </li>
-        </ul>
-        <button class="btn btn-addTask">+Add</button>
-      </div>
+      <main class="lists flex">
+        <div class="listcontainer">
+          <h2 class="secondaryHeadLine">To Do</h2>
+          <ul class="list listNew">
+            <li class="newTask flex" draggable="true" contenteditable="true">
+              <p class="taskInput">New Task</p>
+              <div class="iconsCon">
+                <ion-icon
+                  name="close-circle-outline"
+                  class="icon deleteIcn"
+                ></ion-icon>
+                <ion-icon
+                  name="mic-circle-outline"
+                  class="icon recordIcn"
+                ></ion-icon>
+              </div>
+            </li>
+          </ul>
+          <button id="btn-new" class="btn btn-addTask">+Add</button>
+        </div>
 
-      <div class="listcontainer">
-        <h2 class="secondaryHeadLine">In Progress</h2>
-        <ul class="list listWorking">
-          <li class="newTask">New Task</li>
-        </ul>
-        <button class="btn btn-addTask">+Add</button>
-      </div>
+        <div class="listcontainer">
+          <h2 class="secondaryHeadLine">In Progress</h2>
+          <ul class="list listWorking">
+            <li class="newTask">New Task</li>
+          </ul>
+          <button id="btn-working" class="btn btn-addTask">+Add</button>
+        </div>
 
-      <div class="listcontainer">
-        <h2 class="secondaryHeadLine">Completed</h2>
-        <ul class="list listFinish">
-          <li class="newTask">New Task</li>
-        </ul>
-        <button class="btn btn-addTask">+Add</button>
-      </div>
-    </main>
+        <div class="listcontainer">
+          <h2 class="secondaryHeadLine">Completed</h2>
+          <ul class="list listFinish">
+            <li class="newTask">New Task</li>
+          </ul>
+          <button id="btn-completed" class="btn btn-addTask">+Add</button>
+        </div>
+      </main>
 
-    <!-- Aside Section -->
-    <aside class="aside flex">
-      <div class="reminderList container">
-        <p class="reminde">
-          <strong class="remember">Remember : </strong>Do your Best!
-        </p>
-      </div>
-      <button class="btn relaxer">RelaxeR</button>
-    </aside>
+      <!-- Aside Section -->
+      <aside class="aside flex">
+        <div class="reminderList">
+          <p class="reminde">
+            <strong class="remember">Remember : </strong>Do your Best!
+          </p>
+        </div>
+        <button class="btn relaxer">RelaxeR</button>
+      </aside>
+    </section>
 
-    <footer class="footer container flex">
+    <footer class="footer flex">
       <p>
         Coded in order to Practice Pure JavaScript By
         <a href="https://www.linkedin.com/in/mucahid-developer/" class="myName">
