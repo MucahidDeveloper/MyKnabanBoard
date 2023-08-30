@@ -9,7 +9,7 @@ const lists = {
   listWorking: listWorking,
   listFinish: listFinish,
 };
-console.log(lists);
+
 /////////////
 // RELAXER //
 /////////////
@@ -129,6 +129,10 @@ main.addEventListener("click", function (e) {
     const storedCardsArray = localStorage.getItem(`${listType}`);
     const cards = JSON.parse(storedCardsArray);
     const Updatedcards = cards.filter((card) => card.id !== cardId);
+    if (Updatedcards.length === 0) {
+      localStorage.removeItem(`${listType}`);
+      lists[listType] = [];
+    }
     localStorage.setItem(`${listType}`, JSON.stringify(Updatedcards));
 
     clickedTask.remove();
@@ -197,14 +201,9 @@ main.addEventListener("click", function (e) {
   }
 });
 
-// const updateStorage = (array, taskID) => {
-//   console.log(clickedTask, "Return");
-// };
-
-//////////////////
+///////////////////
 // Local Storage //
-//////////////////
-// lists.forEach((list) => {
+///////////////////
 const storedArray = (list) => {
   const currentList = document.querySelector(`.${list}`);
 
@@ -263,3 +262,5 @@ function updateDateAndTime() {
 updateDateAndTime();
 // Updating Every Second
 setInterval(updateDateAndTime, 1000);
+
+/////////////////
