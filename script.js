@@ -72,12 +72,15 @@ const btnComplete = document.getElementById("btn-Complete");
 const main = document.querySelector("main");
 
 const addTask = (id, value) => {
+  if (value === "") {
+    value = "Empty Task";
+  }
   const newTaskElement = document.createElement("li");
   newTaskElement.className = "newTask flex";
   newTaskElement.setAttribute("data-id", `${id}`);
   newTaskElement.setAttribute("draggable", true);
-  newTaskElement.setAttribute("contenteditable", true);
-  newTaskElement.innerHTML = `<p class="taskInput">${value}</p>
+  // newTaskElement.setAttribute("contenteditable", true);
+  newTaskElement.innerHTML = `<p class="taskInput" contenteditable="true">${value}</p>
 <div class="iconsCon">
 <ion-icon
 name="close-circle-outline"
@@ -144,7 +147,7 @@ main.addEventListener("click", function (e) {
   //////////////////////////
   // Edit Tasks By Typing //
   //////////////////////////
-  if (clickON.classList.contains("newTask")) {
+  if (clickON.classList.contains("taskInput")) {
     const clickedTask = clickON.closest(".newTask");
     const cardId = clickedTask.dataset.id;
 

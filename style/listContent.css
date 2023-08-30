@@ -72,6 +72,9 @@
   outline: none;
 }
 
+.taskInput {
+  width: 87.5%;
+}
 .btn-addTask {
   border-radius: 4px;
   -webkit-border-radius: 4px;
