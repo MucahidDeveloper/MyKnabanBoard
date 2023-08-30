@@ -1,13 +1,13 @@
 ////////////////////
 // Main Structure //
 ////////////////////
-const newList = [];
-const workingList = [];
-const finishList = [];
+const listNew = [];
+const listWorking = [];
+const listFinish = [];
 const lists = {
-  listNew: newList,
-  listWorking: workingList,
-  listFinish: finishList,
+  listNew: listNew,
+  listWorking: listWorking,
+  listFinish: listFinish,
 };
 console.log(lists);
 /////////////
@@ -91,35 +91,145 @@ class="icon recordIcn"
   return newTaskElement;
 };
 
-main.addEventListener("click", function (event) {
-  ///////////////
-  // ADD Tasks //
-  ///////////////
-  if (event.target.classList.contains("btn-addTask")) {
-    event.preventDefault();
-    const currentList = event.target.previousElementSibling;
-    const listType = currentList.classList[1];
+main.addEventListener("click", function (e) {
+  const clickON = e.target;
 
+  //////////////
+  // ADD Task //
+  //////////////
+  const currentList = clickON.closest(".listcontainer").querySelector("ul");
+  const listType = currentList.classList[1];
+  // console.log(currentList, listType); // PROBLEM HERE WHEN CLICK ON EMPTY
+
+  if (clickON.classList.contains("btn-addTask")) {
+    e.preventDefault();
     const id = (Math.random() * 201).toFixed(5);
-
-    // Adding to objects Array for Local Storage
     const newTask = {
       id: id,
       value: "New Task",
     };
+
+    // Adding to objects Array for Local Storage
     currentList.appendChild(addTask(newTask.id, newTask.value));
     if (listType in lists) {
       lists[listType].push(newTask);
+      localStorage.setItem(`${listType}`, JSON.stringify(lists[listType]));
+      console.log("New Item Added to local list");
     }
   }
 
-  /////////////////////////
-  // Remove / Edit Tasks //
-  /////////////////////////
-  if (event.target.classList.contains("deleteIcn")) {
-    return;
+  /////////////////
+  // Delete Task //
+  /////////////////
+  if (clickON.classList.contains("deleteIcn")) {
+    const clickedTask = clickON.closest(".newTask");
+    const cardId = clickedTask.dataset.id;
+    const cardValue = clickedTask.querySelector(".taskInput").innerHTML;
+
+    const storedCardsArray = localStorage.getItem(`${listType}`);
+    const cards = JSON.parse(storedCardsArray);
+    const Updatedcards = cards.filter((card) => card.id !== cardId);
+    localStorage.setItem(`${listType}`, JSON.stringify(Updatedcards));
+
+    clickedTask.remove();
+    console.log(
+      `Task with id ${cardId} and content of: " ${cardValue} " have been removed successfully`
+    );
+  }
+
+  //////////////////////////
+  // Edit Tasks By Typing //
+  //////////////////////////
+  if (clickON.classList.contains("newTask")) {
+    const clickedTask = clickON.closest(".newTask");
+    const cardId = clickedTask.dataset.id;
+
+    clickedTask.addEventListener("input", function (event) {
+      const updatedText = event.target.textContent.trim();
+
+      const storedCardsArray = localStorage.getItem(`${listType}`);
+      const cards = JSON.parse(storedCardsArray);
+      const Updatedcards = cards.map((card) => {
+        if (card.id === cardId) {
+          card.value = updatedText;
+        }
+        return card;
+      });
+      localStorage.setItem(`${listType}`, JSON.stringify(Updatedcards));
+
+      console.log(`Task with id ${cardId} have been edaited successfully`);
+    });
+  }
+
+  //////////////////////////
+  // Edit Tasks By Record // to examine when render the app
+  //////////////////////////
+  if (clickON.classList.contains("recordIcn")) {
+    console.log("Record");
+    const clickedTask = clickON.closest(".newTask");
+    const cardId = clickedTask.dataset.id;
+    const SpeechRecognition =
+      window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.lang = "en-US";
+
+    recognition.onresult = function (event) {
+      const recordedText = event.results[0][0].transcript;
+      cardContentElement.textContent = recordedText;
+
+      // Update local storage
+      const storedCardsArray = localStorage.getItem(`${listType}`);
+      const cards = JSON.parse(storedCardsArray);
+      const updatedCards = cards.map((card) => {
+        if (card.id === cardId) {
+          card.value = recordedText;
+        }
+        return card;
+      });
+      localStorage.setItem(`${listType}`, JSON.stringify(updatedCards));
+
+      console.log(`تم تحديث محتوى البطاقة بنص صوتي: ${recordedText}`);
+    };
+    recognition.onspeechend = function () {
+      recognition.abort();
+    };
+    recognition.start();
   }
 });
+
+// const updateStorage = (array, taskID) => {
+//   console.log(clickedTask, "Return");
+// };
+
+//////////////////
+// Local Storage //
+//////////////////
+// lists.forEach((list) => {
+const storedArray = (list) => {
+  const currentList = document.querySelector(`.${list}`);
+
+  const storedCardsArray = localStorage.getItem(list);
+  if (storedCardsArray) {
+    const parsedCardsArray = JSON.parse(storedCardsArray);
+    parsedCardsArray.forEach((card) => {
+      let id = card.id;
+      let value = card.value;
+      currentList.appendChild(addTask(id, value));
+      const newTask = {
+        id: id,
+        value: value,
+      };
+      lists[list].push(newTask);
+    });
+  }
+};
+
+for (const list in lists) {
+  storedArray(list);
+  console.log(
+    `${list} elements have parsed successfully from your Local Storage`
+  );
+}
 
 /////////////////
 // Time & Date //
