@@ -37,6 +37,11 @@
   position: relative;
 }
 
+.overLi {
+  color: var(--tasks-color);
+  opacity: 0.6;
+}
+
 .newTask {
   margin-top: 1.2rem;
   padding: 1rem;

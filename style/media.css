@@ -1,0 +1,41 @@
+@media (max-width: 42.5em) {
+  .header {
+    flex-direction: column;
+  }
+
+  .timeAndDate {
+    flex-direction: row;
+    gap: 1.8rem;
+    margin: 1rem;
+  }
+
+  .Qplayer {
+    margin: 1rem;
+    width: 75%;
+    align-self: center;
+  }
+
+  .icons {
+    width: 25%;
+    margin: 0 auto;
+  }
+
+  .select {
+    width: 50%;
+  }
+}
+
+@media (max-width: 32em) {
+  .icons {
+    width: 55%;
+    margin: 0 auto;
+  }
+  .footer {
+    flex-direction: column;
+    margin: 1.6rem;
+    gap: 1rem;
+  }
+  .footer p {
+    text-align: center;
+  }
+}

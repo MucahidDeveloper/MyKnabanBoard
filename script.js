@@ -10,10 +10,89 @@ const lists = {
   listFinish: listFinish,
 };
 
+//////////////////
+// Quran Player //
+//////////////////
+const playBtn = document.querySelector(".play");
+const pauseBtn = document.querySelector(".pause");
+const prevBtn = document.querySelector(".backward");
+const nextBtn = document.querySelector(".forward");
+const selectSurah = document.getElementById("surah-selector");
+const audio = document.getElementById("audio");
+let surahNumber = localStorage.getItem("surahNumber") || 112;
+selectSurah.selectedIndex = surahNumber - 1;
+let isPlaying;
+
+function playPause() {
+  if (!isPlaying) {
+    playBtn.classList.remove("hide");
+    pauseBtn.classList.add("hide");
+  } else {
+    playBtn.classList.add("hide");
+    pauseBtn.classList.remove("hide");
+  }
+}
+
+selectSurah.addEventListener("change", function () {
+  surahNumber = this.value;
+  playQuran(surahNumber);
+  localStorage.setItem("surahNumber", surahNumber);
+});
+
+function nextSurah() {
+  isPlaying = true;
+  playPause();
+  surahNumber < 114 ? (surahNumber = +surahNumber + 1) : (surahNumber = 112);
+  selectSurah.selectedIndex = surahNumber - 1;
+  localStorage.setItem("surahNumber", surahNumber);
+  playQuran(surahNumber);
+}
+
+async function playQuran(surahNum) {
+  isPlaying = true;
+  const response = await fetch(
+    `http://api.alquran.cloud/v1/surah/${surahNum}/ar.alafasy`
+  );
+  const surah = await response.json();
+  const ayahs = surah.data.ayahs;
+  playPause();
+
+  for (const ayah of ayahs) {
+    audio.src = ayah.audio;
+    audio.controls = true;
+    await audio.play();
+    console.log("ayah.audio");
+    await new Promise((resolve) => {
+      audio.addEventListener("ended", resolve);
+    });
+  }
+  isPlaying = false;
+  playPause();
+  nextSurah();
+}
+
+prevBtn.addEventListener("click", function () {
+  playPause();
+  surahNumber -= 1;
+  selectSurah.selectedIndex = surahNumber - 1;
+  localStorage.setItem("surahNumber", surahNumber);
+  playQuran(surahNumber);
+});
+
+nextBtn.addEventListener("click", nextSurah);
+
+playBtn.addEventListener("click", function () {
+  playQuran(surahNumber);
+});
+
+pauseBtn.addEventListener("click", function () {
+  audio.pause();
+  playPause();
+});
+
 /////////////
 // RELAXER //
 /////////////
-
 const relaxer = document.querySelector(".relaxer");
 const showRelaxer = document.querySelector(".showRelaxer");
 
@@ -50,18 +129,6 @@ relaxer.addEventListener("click", () => {
     text.innerText = "";
   });
 });
-
-//   e.preventDefault();
-//   fetch("https://qurancentral.com/mishary-rashid-alafasy-001-al-fatiha/").then(
-//     (res) => {
-//       console.log("fetch succed");
-//       console.log(res);
-//       console.log(res.json());
-//       console.log(res.json(result).parse());
-//       // res.json();
-//     }
-//   );
-// });
 
 ///////////////
 // ADD Tasks //
@@ -204,6 +271,72 @@ main.addEventListener("click", function (e) {
   }
 });
 
+/////////////////
+// Drag & Drop //
+/////////////////
+let draggedTask;
+let currentList;
+let cardId;
+let cardValue;
+
+main.addEventListener("dragstart", function (e) {
+  draggedTask = e.target.closest("li");
+  currentList = draggedTask.closest("ul").classList[1];
+  cardId = draggedTask.dataset.id;
+  cardValue = draggedTask.querySelector("p").textContent;
+  draggedTask.classList.add("filmy");
+});
+
+main.addEventListener("dragend", function (e) {
+  const draggedTask = e.target.closest("li");
+  draggedTask.classList.remove("filmy");
+  draggedTask.closest(".listcontainer").classList.remove("overLi");
+});
+
+const listsC = document.querySelectorAll(".listcontainer");
+listsC.forEach((list) => {
+  list.addEventListener("dragover", function (e) {
+    e.preventDefault();
+    list.classList.add("overLi");
+    newList = list;
+  });
+
+  list.addEventListener("dragleave", function () {
+    list.classList.remove("overLi");
+  });
+
+  list.addEventListener("drop", function () {
+    list.classList.remove("overLi");
+    list.querySelector(".list").append(draggedTask);
+    const listType = list.querySelector(".list").classList[1];
+
+    if (currentList !== listType) {
+      // Update The New List
+      if (listType in lists) {
+        const transportedTask = {
+          id: cardId,
+          value: cardValue,
+        };
+        lists[listType].push(transportedTask);
+        localStorage.setItem(`${listType}`, JSON.stringify(lists[listType]));
+
+        // Remove Task From The Old List
+        const storedCardsArray = localStorage.getItem(`${currentList}`);
+        const cards = JSON.parse(storedCardsArray);
+        const Updatedcards = cards.filter((card) => card.id !== cardId);
+        if (Updatedcards.length === 0) {
+          localStorage.removeItem(`${currentList}`);
+          lists[currentList] = [];
+        }
+        localStorage.setItem(`${currentList}`, JSON.stringify(Updatedcards));
+        console.log(
+          `The Task: "${cardValue}" moved from ${currentList} to ${listType} Successfully`
+        );
+      }
+    }
+  });
+});
+
 ///////////////////
 // Local Storage //
 ///////////////////
@@ -247,10 +380,10 @@ function updateDateAndTime() {
   const day = currentTime.getDate();
 
   // fixing one digit numbers/Dates
-  const fixingTD = (digits) => (digits > 10 ? digits : `0${digits}`);
+  const fixingTD = (digits) => (digits >= 10 ? digits : `0${digits}`);
 
   // Time Formating
-  const formattedTime = `${fixingTD(hours)}:${fixingTD(minutes)}:${fixingTD(
+  const formattedTime = `${fixingTD(hours)} : ${fixingTD(minutes)} : ${fixingTD(
     seconds
   )}`;
 

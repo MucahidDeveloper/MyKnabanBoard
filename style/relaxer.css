@@ -10,9 +10,9 @@
   display: none;
 }
 
-/* .show {
+.show {
   display: block;
-} */
+}
 
 .relaxerContainer {
   display: flex;

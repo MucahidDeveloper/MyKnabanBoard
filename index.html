@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="style/style.css" type="text/css" />
     <link rel="stylesheet" href="style/listContent.css" type="text/css" />
     <link rel="stylesheet" href="style/relaxer.css" type="text/css" />
+    <link rel="stylesheet" href="style/media.css" type="text/css" />
 
     <script
       type="module"
@@ -26,21 +27,20 @@
     <script src="script.js" type="text/javascript" defer></script>
   </head>
   <body class="flex">
-    <section class="container">
-      <!-- Relaxer -->
-      <div class="showRelaxer">
-        <div id="container" class="relaxerContainer">
-          <div class="circle flex"></div>
-          <p id="relaxertext"></p>
+    <!-- Relaxer -->
+    <div class="showRelaxer">
+      <div id="container" class="relaxerContainer">
+        <div class="circle flex"></div>
+        <p id="relaxertext"></p>
 
-          <div class="pointer-container">
-            <span class="pointer"></span>
-          </div>
-
-          <div class="gradient-circle"></div>
+        <div class="pointer-container">
+          <span class="pointer"></span>
         </div>
-      </div>
 
+        <div class="gradient-circle"></div>
+      </div>
+    </div>
+    <section class="container">
       <!-- Header Section -->
       <header class="header flex">
         <div class="timeAndDate flex">
@@ -56,13 +56,135 @@
         <h1 class="headLine">Mujahed Kanban Board</h1>
         <div class="Qplayer">
           <img src="img/Qimg.png" alt="Quran image" class="Qimg" />
+          <div class="surahContainer">
+            <audio id="audio" class="hide"></audio>
+            <select id="surah-selector" class="select">
+              <option value="1">1. Al-Faatiha</option>
+              <option value="2">2. Al-Baqarah</option>
+              <option value="3">3. Aale 'Imran</option>
+              <option value="4">4. An-Nisaa</option>
+              <option value="5">5. Al-Maaidah</option>
+              <option value="6">6. Al-An'aam</option>
+              <option value="7">7. Al-A'raaf</option>
+              <option value="8">8. Al-Anfaal</option>
+              <option value="9">9. At-Tawbah</option>
+              <option value="10">10. Younus</option>
+              <option value="11">11. Huud</option>
+              <option value="12">12. Yusuf</option>
+              <option value="13">13. Ar-Ra'ad</option>
+              <option value="14">14. Ibraheem</option>
+              <option value="15">15. Al-Hijr</option>
+              <option value="16">16. An-Nahl</option>
+              <option value="17">17. Al-Israa</option>
+              <option value="18">18. Al-Kahf</option>
+              <option value="19">19. Maryam</option>
+              <option value="20">20. Taha</option>
+              <option value="21">21. Al-Anbiya</option>
+              <option value="22">22. Al-Hajj</option>
+              <option value="23">23. Al-Muminoon</option>
+              <option value="24">24. An-Noor</option>
+              <option value="25">25. Al-Furqaan</option>
+              <option value="26">26. Ash-Shu'araa</option>
+              <option value="27">27. An-Naml</option>
+              <option value="28">28. Al-Qasas</option>
+              <option value="29">29. Al-'Ankaboot</option>
+              <option value="30">30. Ar-Ruum</option>
+              <option value="31">31. Luqmaan</option>
+              <option value="32">32. As-Sajdah</option>
+              <option value="33">33. Al-Ahzaab</option>
+              <option value="34">34. Saba</option>
+              <option value="35">35. Faatir</option>
+              <option value="36">36. Yaseen</option>
+              <option value="37">37. As-Saffat</option>
+              <option value="38">38. Saad</option>
+              <option value="39">39. Az-Zumar</option>
+              <option value="40">40. Ghafir</option>
+              <option value="41">41. Fussilat</option>
+              <option value="42">42. Ash-Shura</option>
+              <option value="43">43. Az-Zukhruf</option>
+              <option value="44">44. Ad-Dukhan</option>
+              <option value="45">45. Al-Jathiya</option>
+              <option value="46">46. Al-Ahqaf</option>
+              <option value="47">47. Muhammad</option>
+              <option value="48">48. Al-Fath</option>
+              <option value="49">49. Al-Hujuraat</option>
+              <option value="50">50. Qaf</option>
+              <option value="51">51. Adh-Dhariyat</option>
+              <option value="52">52. At-Tur</option>
+              <option value="53">53. An-Najm</option>
+              <option value="54">54. Al-Qamar</option>
+              <option value="55">55. Ar-Rahman</option>
+              <option value="56">56. Al-Waqia</option>
+              <option value="57">57. Al-Hadid</option>
+              <option value="58">58. Al-Mujadila</option>
+              <option value="59">59. Al-Hashr</option>
+              <option value="60">60. Al-Mumtahina</option>
+              <option value="61">61. As-Saff</option>
+              <option value="62">62. Al-Jumua</option>
+              <option value="63">63. Al-Munafiqoon</option>
+              <option value="64">64. At-Taghabun</option>
+              <option value="65">65. At-Talaq</option>
+              <option value="66">66. At-Tahrim</option>
+              <option value="67">67. Al-Mulk</option>
+              <option value="68">68. Al-Qalam</option>
+              <option value="69">69. Al-Haaqqah</option>
+              <option value="70">70. Al-Ma'arij</option>
+              <option value="71">71. Nooh</option>
+              <option value="72">72. Al-Jinn</option>
+              <option value="73">73. Al-Muzzammil</option>
+              <option value="74">74. Al-Muddaththir</option>
+              <option value="75">75. Al-Qiyamah</option>
+              <option value="76">76. Al-Insaan</option>
+              <option value="77">77. Al-Mursalat</option>
+              <option value="78">78. An-Naba</option>
+              <option value="79">79. An-Naziat</option>
+              <option value="80">80. Abasa</option>
+              <option value="81">81. At-Takwir</option>
+              <option value="82">82. Al-Infitar</option>
+              <option value="83">83. Al-Mutaffifin</option>
+              <option value="84">84. Al-Inshiqaaq</option>
+              <option value="85">85. Al-Burooj</option>
+              <option value="86">86. At-Tariq</option>
+              <option value="87">87. Al-A'la</option>
+              <option value="88">88. Al-Ghashiyah</option>
+              <option value="89">89. Al-Fajr</option>
+              <option value="90">90. Al-Balad</option>
+              <option value="91">91. Ash-Shams</option>
+              <option value="92">92. Al-Lail</option>
+              <option value="93">93. Ad-Duha</option>
+              <option value="94">94. Ash-Sharh</option>
+              <option value="95">95. At-Tin</option>
+              <option value="96">96. Al-'Alaq</option>
+              <option value="97">97. Al-Qadr</option>
+              <option value="98">98. Al-Bayyinah</option>
+              <option value="99">99. Az-Zalzalah</option>
+              <option value="100">100. Al-'Adiyat</option>
+              <option value="101">101. Al-Qariyah</option>
+              <option value="102">102. At-Takathur</option>
+              <option value="103">103. Al-'Asr</option>
+              <option value="104">104. Al-Humazah</option>
+              <option value="105">105. Al-Fil</option>
+              <option value="106">106. Quraysh</option>
+              <option value="107">107. Al-Maoun</option>
+              <option value="108">108. Al-Kawthar</option>
+              <option value="109">109. Al-Kafiroon</option>
+              <option value="110">110. An-Nasr</option>
+              <option value="111">111. Al-Masad</option>
+              <option value="112">112. Al-Ikhlaas</option>
+              <option value="113">113. Al-Falaq</option>
+              <option value="114">114. An-Naas</option>
+            </select>
+          </div>
           <div class="icons flex">
             <ion-icon
               name="play-skip-back-circle-outline"
               class="icon backward"
             ></ion-icon>
             <ion-icon name="play-circle-outline" class="icon play"></ion-icon>
-            <ion-icon name="pause-circle-outline" class="icon pause"></ion-icon>
+            <ion-icon
+              name="pause-circle-outline"
+              class="icon pause hide"
+            ></ion-icon>
             <ion-icon
               name="play-skip-forward-circle-outline"
               class="icon forward"
@@ -76,37 +198,19 @@
       <main class="lists flex">
         <div class="listcontainer">
           <h2 class="secondaryHeadLine">To Do</h2>
-          <ul class="list listNew">
-            <!-- <li class="newTask flex" draggable="true" >
-              <p contenteditable="true" class="taskInput">New Task</p>
-              <div class="iconsCon">
-                <ion-icon
-                  name="close-circle-outline"
-                  class="icon deleteIcn"
-                ></ion-icon>
-                <ion-icon
-                  name="mic-circle-outline"
-                  class="icon recordIcn"
-                ></ion-icon>
-              </div>
-            </li> -->
-          </ul>
+          <ul class="list listNew"></ul>
           <button id="btn-new" class="btn btn-addTask">+Add</button>
         </div>
 
         <div class="listcontainer">
           <h2 class="secondaryHeadLine">In Progress</h2>
-          <ul class="list listWorking">
-            <!-- <li class="newTask">New Task</li> -->
-          </ul>
+          <ul class="list listWorking"></ul>
           <button id="btn-working" class="btn btn-addTask">+Add</button>
         </div>
 
         <div class="listcontainer">
           <h2 class="secondaryHeadLine">Completed</h2>
-          <ul class="list listFinish">
-            <!-- <li class="newTask">New Task</li> -->
-          </ul>
+          <ul class="list listFinish"></ul>
           <button id="btn-completed" class="btn btn-addTask">+Add</button>
         </div>
       </main>
@@ -115,7 +219,8 @@
       <aside class="aside flex">
         <div class="reminderList">
           <p class="reminde">
-            <strong class="remember">Remember : </strong>Do your Best!
+            <strong class="remember">Remember : </strong> Be Honest & Do your
+            Best!
           </p>
         </div>
         <button class="btn relaxer">RelaxeR</button>
@@ -143,3 +248,14 @@
     </footer>
   </body>
 </html>
+
+<!-- async function playQuran() { const response = await fetch(
+"http://api.alquran.cloud/v1/surah/114/ar.alafasy" ); const surah = await
+response.json(); const ayahs = surah.data.ayahs; for (const ayah of ayahs) {
+const audioPlayer = document.createElement("audio"); audioPlayer.src =
+ayah.audio; audioPlayer.controls = true; // إضافة واجهة تحكم لمشغل الصوت
+document.body.appendChild(audioPlayer); // إضافة مشغل الصوت إلى الصفحة // أضف
+مستمع الحدث للعنصر لبدء التشغيل عند النقر عليه
+audioPlayer.addEventListener("click", () => { audioPlayer.play(); }); } }
+playQuran(); هذا الكود يقوم بإنشاء عناصر audio على الصفحة لكل آية، وبإضافة واجهة
+تحكم للمشغل يمكن النقر عليها لتشغيل المقطع الصوتي من الرابط ayah.audio. -->
