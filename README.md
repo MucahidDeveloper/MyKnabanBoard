@@ -11,7 +11,8 @@ Applications Main Features:
 <br><br>
 <strong>
 Applications Extra Features:
-</strong><br>
+</strong>
+<br>
 1. Apply Browser Local Storage to Save User Inputs (Tasks - Tasks Lists - Current Surah of The Quran Player)<br>
 2. Full Quran Player made up fetching "alquran.cloud" API and play it using Audio API of the Browser<br>
 3. Breath Handler maded to relax user, maded By Animation features of CSS<br>
