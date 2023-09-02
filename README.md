@@ -18,7 +18,7 @@ Applications Extra Features:
 3. Breath Handler maded to relax user, maded By Animation features of CSS<br>
 4. Showing Current Time And Date, Updating every second<br>
 <br><br>
-Used Skills:<br>
+<strong>Used Skills:<strong/><br>
 HTML - CSS - JavaScript<br>
 CSS Animation - Responsing Web Design<br>
 Restful API - Browser Audio API - Browser Record API<br>
