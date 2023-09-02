@@ -51,7 +51,7 @@ function nextSurah() {
 async function playQuran(surahNum) {
   isPlaying = true;
   const response = await fetch(
-    `http://api.alquran.cloud/v1/surah/${surahNum}/ar.alafasy`
+    `https://api.alquran.cloud/v1/surah/${surahNum}/ar.alafasy`
   );
   const surah = await response.json();
   const ayahs = surah.data.ayahs;
@@ -61,7 +61,6 @@ async function playQuran(surahNum) {
     audio.src = ayah.audio;
     audio.controls = true;
     await audio.play();
-    console.log("ayah.audio");
     await new Promise((resolve) => {
       audio.addEventListener("ended", resolve);
     });
@@ -87,6 +86,7 @@ playBtn.addEventListener("click", function () {
 
 pauseBtn.addEventListener("click", function () {
   audio.pause();
+  isPlaying = false;
   playPause();
 });
 
