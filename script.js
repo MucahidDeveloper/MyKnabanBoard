@@ -357,7 +357,7 @@ listsC.forEach((list) => {
           lists[currentList] = [];
         }
         localStorage.setItem(`${currentList}`, JSON.stringify(Updatedcards));
-        lists[listType] = Updatedcards;
+        lists[currentList] = Updatedcards;
         console.log(
           `The Task: "${cardValue}" moved from ${currentList} to ${listType} Successfully`
         );
