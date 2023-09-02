@@ -153,10 +153,7 @@ const addTask = (id, value) => {
 name="close-circle-outline"
 class="icon deleteIcn"
 ></ion-icon>
-<ion-icon
-name="mic-circle-outline"
-class="icon recordIcn"
-></ion-icon>
+
 </div>`;
   return newTaskElement;
 };
@@ -238,37 +235,68 @@ main.addEventListener("click", function (e) {
   //////////////////////////
   // Edit Tasks By Record // to examine when render the app
   //////////////////////////
-  if (clickON.classList.contains("recordIcn")) {
-    console.log("Record");
-    const clickedTask = clickON.closest(".newTask");
-    const cardId = clickedTask.dataset.id;
-    const SpeechRecognition =
-      window.SpeechRecognition || window.webkitSpeechRecognition;
-    const recognition = new SpeechRecognition();
-    recognition.lang = "en-US";
+  // if (clickON.classList.contains("recordIcn")) {
+  //   console.log("Record");
+  //   const clickedTask = clickON.closest(".newTask");
+  //   const cardId = clickedTask.dataset.id;
+  //   const cardValue = clickedTask.querySelector(".taskInput");
+  //   const recordIcn = clickedTask.querySelector(".recordIcn");
 
-    recognition.onresult = function (event) {
-      const recordedText = event.results[0][0].transcript;
-      cardContentElement.textContent = recordedText;
+  //   window.SpeechRecognition =
+  //     window.SpeechRecognition || window.webkitSpeechRecognition;
+  //   let recognition = new window.SpeechRecognition();
+  //   recognition.start();
+  //   console.log("بداية");
+  //   recognition.lang = "en-US";
+  //   console.log("تحديد اللغة");
+  //   recognition.continuous = true;
+  //   console.log("استماع مستمر");
+  //   // Capture user speak
+  // function onSpeak(e) {
+  //   console.log(msg);
+  //   const msg = e.results[0][0].transcript;
+  //   writeMessage(msg);
+  //   // checkNumber(msg);
+  // }
 
-      // Update local storage
-      const storedCardsArray = localStorage.getItem(`${listType}`);
-      const cards = JSON.parse(storedCardsArray);
-      const updatedCards = cards.map((card) => {
-        if (card.id === cardId) {
-          card.value = recordedText;
-        }
-        return card;
-      });
-      localStorage.setItem(`${listType}`, JSON.stringify(updatedCards));
+  // // Write what user speaks
+  // function writeMessage(msg) {
+  //   cardValue.textContent = msg;
+  // }
+  //   // recognition.addEventListener("result", onSpeak);
+  //   recognition.addEventListener("end", start);
+  //   function start() {
+  //     console.log("Finish Recording");
+  //     recognition.start();
+  //   }
 
-      console.log(`تم تحديث محتوى البطاقة بنص صوتي: ${recordedText}`);
-    };
-    recognition.onspeechend = function () {
-      recognition.abort();
-    };
-    recognition.start();
-  }
+  //   recognition.onresult = function (event) {
+  //     const recordedText = event.results[0][0].transcript;
+  //     cardValue.textContent = recordedText;
+  //     console.log(recordedText);
+
+  //     // Update local storage
+  //     const storedCardsArray = localStorage.getItem(`${listType}`);
+  //     const cards = JSON.parse(storedCardsArray);
+  //     const updatedCards = cards.map((card) => {
+  //       if (card.id === cardId) {
+  //         card.value = recordedText;
+  //       }
+  //       return card;
+  //     });
+  //     localStorage.setItem(`${listType}`, JSON.stringify(updatedCards));
+
+  //     console.log(`تم تحديث محتوى البطاقة بنص صوتي: ${recordedText}`);
+  //   };
+  //   recognition.onspeechend = function () {
+  //     recognition.abort();
+  //   };
+  // }
+  // recordIcn.addEventListener("click", function () {
+  //   {
+  //     recognition.removeEventListener("end", start);
+  //   }
+  // });
 });
 
 /////////////////
